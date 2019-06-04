@@ -1,0 +1,24 @@
+{
+  "name": "Dictionary",
+  "version": "0.0.1",
+  "description": "Look up selected word in Cambridge English-Chinese dictionary",
+  "manifest_version": 2,
+
+  "browser_action": {
+    "default_popup": "src/popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["src/content.js"],
+      "run_at": "document_start"
+      
+    }
+  ],
+
+  "content_security_policy": "script-src 'self' 'sha256-N1WAxIKEggP9K0dMZ3QDsmpbwB8rgGiBbjYCI283ZC0='; object-src 'self'", 
+
+  "permissions": ["tabs", "<all_urls>"]
+}
